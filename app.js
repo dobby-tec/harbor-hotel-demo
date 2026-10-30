@@ -29,6 +29,10 @@
 
   if (page === 'home') {
     var f = $('#search');
+    var iso = function (t) { return new Date(t).toISOString().slice(0, 10); };
+    var syncOut = function () { var t = day(f.checkin.value); if (t === null) return; var min = iso(t + 864e5); f.checkout.min = min; if (!f.checkout.value || f.checkout.value < min) f.checkout.value = min; };
+    f.checkin.min = iso(Date.now());
+    f.checkin.addEventListener('change', syncOut); syncOut();
     f.addEventListener('submit', function (e) { e.preventDefault(); location.href = 'rooms.html?' + qs({ checkin: f.checkin.value, checkout: f.checkout.value, guests: f.guests.value }) + keep; });
   }
   if (page === 'rooms') {

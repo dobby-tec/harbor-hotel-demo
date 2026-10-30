@@ -23,3 +23,4 @@ nav a{padding:4px 0;border-bottom:2px solid transparent}nav a:hover{border-botto
 .sec{font:700 24px system-ui,sans-serif;margin:32px 0 0}.thumb{width:100%;height:130px;object-fit:cover;border-radius:6px;margin-bottom:10px}
 .detail{display:grid;grid-template-columns:1.4fr 1fr;gap:20px}.big{width:100%;border-radius:8px;display:block}.detail ul{padding-left:20px}
 @media(max-width:700px){.room .pic{width:100%;height:190px}.detail{grid-template-columns:1fr}nav a{margin-left:12px}}
+input[type=date]{width:100%;padding:10px;border:1px solid #c5ced5;border-radius:6px;font:inherit;background:#fff;color:var(--ink)}
