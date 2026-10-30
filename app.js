@@ -36,7 +36,7 @@
     var html = '<h1>Available rooms</h1><p class="summary" id="summary">Stay: ' + s.checkin + ' to ' + s.checkout + ' (' + s.nights + ' night' + (s.nights > 1 ? 's' : '') + '), ' + s.guests + ' guest' + (s.guests > 1 ? 's' : '') + '</p>';
     if (NOTICE) html += '<p class="notice" id="fee-notice">The prices on this page are per night. They do not include the cleaning fee. The cleaning fee is added at checkout and is different for each room: ' + ROOMS.map(function (r) { return r.name + ' ' + r.cleaning + ' EUR'; }).join(', ') + '.</p>';
     ROOMS.forEach(function (r) {
-      html += '<article class="panel room"><div class="pic ' + r.pic + '" role="img" aria-label="' + esc(r.name) + '"></div><div><h2>' + esc(r.name) + '</h2><p class="meta">Sleeps ' + r.sleeps + ' &middot; ' + esc(r.blurb) + '</p>';
+      html += '<article class="panel room"><a href="room.html?id=' + r.id + '"><img class="pic" src="room-' + r.id + '.svg" alt="' + esc(r.name) + '"></a><div><h2>' + esc(r.name) + '</h2><p class="meta">Sleeps ' + r.sleeps + ' &middot; ' + esc(r.blurb) + '</p>';
       if (s.guests > r.sleeps) { html += '<p>Too small for ' + s.guests + ' guests.</p></div></article>'; return; }
       html += '<div class="rates">';
       [['flex', 'Flex rate', 'Free cancellation until 48 hours before arrival', 'tag', 'Free cancellation'], ['saver', 'Saver rate', 'Not refundable', 'tag no', 'Not refundable']].forEach(function (x) {
